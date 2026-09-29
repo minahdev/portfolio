@@ -1,8 +1,14 @@
 import { skills } from "@/lib/content";
 
+/** 마퀴 한 벌에 목록을 몇 번 넣을지. 한 벌이 화면 폭보다 짧으면 되감길 때 빈 구간이 보인다.
+ *  목록 한 번이 약 1,700px 이라 3번이면 5K 모니터까지 덮는다. 재생 시간도 같은 배수로 늘려 속도는 시안(36s)과 같다. */
+const MARQUEE_REPEAT = 3;
+const MARQUEE_BASE_SECONDS = 36;
+
 export function Skills() {
-  // 마퀴 트랙은 같은 목록을 두 번 이어 붙여야 -50% 이동 끝에 빈 구간이 없다
-  const track = [...skills.marquee, ...skills.marquee];
+  // 마퀴 트랙은 같은 "한 벌"을 두 번 이어 붙여야 -50% 이동 끝에 빈 구간이 없다
+  const unit = Array.from({ length: MARQUEE_REPEAT }, () => skills.marquee).flat();
+  const track = [...unit, ...unit];
 
   return (
     <section className="panel sec" id="skills" data-nav-key="skills">
@@ -37,7 +43,7 @@ export function Skills() {
 
       {/* 마퀴: Skills 장 바닥의 풀블리드 밴드 */}
       <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
+        <div className="marquee-track" style={{ animationDuration: `${MARQUEE_BASE_SECONDS * MARQUEE_REPEAT}s` }}>
           {track.map((item, i) => (
             <span key={`${item}-${i}`} className="marquee-item">
               <span>{item}</span>
