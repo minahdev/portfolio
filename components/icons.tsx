@@ -58,10 +58,10 @@ export function MailIcon() {
   );
 }
 
-/** 카드 제목 옆 ↗ */
-export function ExternalIcon() {
+/** 카드 제목 옆 ↗ (링크 줄에서는 12px 로 작게) */
+export function ExternalIcon({ size = 18 }: { size?: number }) {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style={{ display: "block" }}>
+    <svg width={size} height={size} viewBox="0 0 18 18" fill="none" aria-hidden="true" style={{ display: "block" }}>
       <path
         d="M5 13L13 5M13 5H7M13 5V11"
         stroke="#A78BFA"

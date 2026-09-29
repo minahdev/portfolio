@@ -58,6 +58,16 @@ function WorkCard({ work }: { work: Work }) {
               <p className="card-meta">
                 {work.role} · {work.period}
               </p>
+              {work.links && work.links.length > 0 && (
+                <p className="card-links">
+                  {work.links.map((l) => (
+                    <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
+                      {l.label}
+                      <ExternalIcon size={12} />
+                    </a>
+                  ))}
+                </p>
+              )}
               <div className="chips">
                 {work.stack.map((s) => (
                   <span key={s} className="chip">

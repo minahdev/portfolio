@@ -22,8 +22,10 @@ export interface Work {
   stack: string[];
   /** 썸네일 위 성과 슬롯 */
   badge: string;
-  /** 상세 링크 — 상세 페이지가 생기면 여기만 바꾼다 */
+  /** 제목을 눌렀을 때 가는 곳 (데모 사이트) */
   href: string;
+  /** 제목 링크 외에 같이 보여 줄 링크 — 보고서·GitHub 등. 없으면 줄이 안 생긴다 */
+  links?: { label: string; href: string }[];
   /** 썸네일 추상 비주얼 (components/art) */
   art: WorkArt;
   /** 카드 테두리 연출 */
@@ -113,10 +115,14 @@ export const works: Work[] = [
     description:
       "지원자 검색·서류 심사·AI 면접·일정 조율·메일 발송을 한 화면에서 끝내는 채용 도구. 4인 팀에서 담당자용 웹(React)과 지원자용 앱(Flutter)을 같은 API 위에 맡았습니다.",
     role: "프론트엔드 · 앱 (4인 팀)",
-    period: "2026 여름 – 2026.09",
+    period: "2026.08 – 2026.10",
     stack: ["React", "TypeScript", "Flutter", "FastAPI"],
     badge: "WEB + APP · 같은 API",
     href: "https://seuk.suvisdev.cloud",
+    links: [
+      { label: "개발 보고서", href: "https://ats.minahdev.cloud" },
+      { label: "GitHub", href: "https://github.com/Seuk-Team/Arda" },
+    ],
     art: "panels",
     frame: "plain",
   },

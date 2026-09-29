@@ -430,6 +430,16 @@ section{ scroll-margin-top:96px; }
 .card:hover .card-title a svg{ transform:translate(3px,-3px); }
 .card-desc{ margin-top:12px; font-size:15px; line-height:1.65; color:var(--muted); }
 .card-meta{ margin-top:auto; padding-top:20px; font-size:13px; color:var(--caption); }
+/* 카드 보조 링크(보고서·GitHub) — 시안에는 없던 줄. 터치 타깃 44px 은 지키되 음수 마진으로 카드 간격은 유지 */
+.card-links{ display:flex; flex-wrap:wrap; gap:0 18px; margin-top:2px; }
+.card-links a{
+  display:inline-flex; align-items:center; gap:5px;
+  height:44px; margin:-10px 0;
+  font-size:13px; font-weight:500; color:var(--caption-hi);
+  transition:color .25s var(--ease);
+}
+.card-links a:hover{ color:var(--accent); }
+.card-links a svg{ flex:none; }
 .chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
 .chip{
   display:inline-flex; align-items:center; height:28px; padding:0 12px;
