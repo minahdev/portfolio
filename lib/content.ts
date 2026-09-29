@@ -62,16 +62,16 @@ export const nav = [
 ];
 
 export const hero = {
-  badge: "새 프로젝트 협업 논의 가능",
-  badgeNote: "[도시] 기반 · 원격 협업 가능",
+  badge: "신입 풀스택 개발자 · 헬스케어",
+  badgeNote: "서울 기반 · 원격 협업 가능",
   /** 헤드라인 2행 — `snap` 은 글자가 흩어졌다 날아와 앉는 단어 */
   headline: { first: "화면과 서버를", lead: "같은 밀도로", snap: "설계합니다" },
   lead: `${site.name} — ${site.role}`,
-  body: "화면부터 API와 데이터베이스까지, 기능 하나를 끝까지 책임지고 만듭니다. [X]년 동안 [분야] 서비스를 만들며 빠르게 열리고 오래 고쳐 쓰기 좋은 구조를 찾아왔습니다.",
+  body: "화면부터 API와 데이터베이스까지, 기능 하나를 끝까지 책임지고 만듭니다. 헬스케어 서비스를 직접 만들어 운영하면서, 빠르게 열리고 오래 고쳐 쓰기 좋은 구조를 찾아가고 있습니다.",
   primaryCta: { label: "프로젝트 논의하기", href: "#contact" },
   secondaryCta: { label: "작업물 보기", href: "#work" },
   card: { status: "NOW BUILDING", title: "API 설계 · 화면 구현", caption: "지금 다듬고 있는 것들" },
-  shipped: { label: "SHIPPED", count: "[NN]", unit: "개 기능" },
+  shipped: { label: "SHIPPED", count: "2", unit: "개 서비스" },
   pager: { current: "01", total: "04" },
 };
 
@@ -148,22 +148,31 @@ export const about = {
   eyebrow: "About",
   title: "코드 뒤의 생각",
   lead: "좋은 서비스는 화면만으로도, 서버만으로도 만들어지지 않는다고 믿습니다.",
-  body: "[N]년차 풀스택 개발자입니다. [회사명]에서 [분야] 서비스를 맡아 화면과 서버를 오갔습니다. 그 사이에서 생기는 문제를 남에게 넘기지 않고 직접 해결하는 편입니다.",
+  body: "헬스케어 서비스를 만들고 싶은 신입 풀스택 개발자입니다. 운동 추천 앱 Pace를 혼자 만들어 운영하고 있고, 4인 팀에서는 AI 채용 도구 Arda의 웹과 앱을 맡았습니다. 화면과 서버 사이에서 생기는 문제를 남에게 넘기지 않고 직접 해결하는 편입니다.",
+  // 경력 연차 대신 실제로 만든 것의 수. 전부 Works 장에서 확인할 수 있는 숫자다.
   stats: [
-    { value: "[N]", unit: "년", label: "개발 경력" },
-    { value: "[N]", unit: "개", label: "운영한 프로덕트" },
-    { value: "[N]", unit: "편", label: "기술 글 / 발표" },
+    { value: "2", unit: "개", label: "배포까지 마친 프로젝트" },
+    { value: "1", unit: "개", label: "혼자 운영 중인 서비스" },
+    { value: "2", unit: "종", label: "다루는 클라이언트 · 웹과 앱" },
   ],
-  careerLabel: "Career",
+  careerLabel: "Timeline",
   timeline: [
     {
-      heading: "[회사명] · [담당 역할]",
-      detail: "커머스 서비스의 화면과 주문 API 개발",
-      period: "[2023.03 – 현재]",
+      heading: "Pace · 1인 개발",
+      detail: "기분을 남기면 운동을 골라주는 헬스케어 앱을 혼자 기획·개발·운영",
+      period: "2026.06 – 현재",
       current: true,
     },
-    { heading: "[회사명] · [담당 역할]", detail: "데이터 대시보드와 사내 도구 개발", period: "[2021.01 – 2023.02]" },
-    { heading: "[학교] · [전공]", period: "[2017.03 – 2021.02]" },
+    {
+      heading: "Team Seuk · Arda ATS 프론트엔드 · 앱",
+      detail: "AI 채용 관리 시스템의 담당자용 웹(React)과 지원자용 앱(Flutter)",
+      period: "2026.08 – 2026.10",
+    },
+    {
+      heading: "전주대학교 · 스마트미디어학과",
+      detail: "헬스 동아리 회장 1년 · 부회장 1년",
+      period: "2022.03 – 2026.02",
+    },
   ] as { heading: string; detail?: string; period: string; current?: boolean }[],
 };
 
