@@ -609,13 +609,20 @@ section{ scroll-margin-top:96px; }
 .panel > .wrap{ position:relative; z-index:1; }
 .panel > .marquee{ margin-top:clamp(32px,5vw,56px); }
 
+/* 폴백(모바일·작은 창) 챕터 스냅 — 덱이 꺼진 상태에서만.
+   여기서는 장 대부분이 화면보다 길어서 mandatory 로 가두면 내용이 잘린다.
+   proximity: 장 머리 근처에서 멈췄을 때만 그 장 머리(헤더 바로 아래)로 붙고,
+   긴 장의 중간을 읽는 동안에는 자유롭게 흐른다. */
+html.js:not(.js-deck){ scroll-snap-type:y proximity; }
+.js:not(.js-deck) .panel{ scroll-snap-align:start; scroll-margin-top:var(--header-h); }
+
 .scroll-hint{ transition:opacity .45s var(--ease), transform .45s var(--ease); }
 .scroll-hint.is-gone{ opacity:0; transform:translateY(10px); pointer-events:none; }
 
 /* ⚠ 이 조건은 JS 의 DECK_Q 와 같은 값이다(아래 스크립트 참조).
    값이 어긋나도 갈라지지 않도록, JS 는 이 블록이 .deck 에 심는 --deck-ready 를 읽어
    "CSS 가 실제로 덱을 열었는가"로 deckOn 을 판정한다. */
-@media (min-width:992px) and (min-height:700px){
+@media (min-width:992px) and (min-height:600px){
   /* JS 가 "이 미디어쿼리가 실제로 적용됐는가"를 읽는 신호.
      .js-deck 과 무관하게 켜져야 판정에 쓸 수 있다. */
   .deck{ --deck-ready:1; }
@@ -702,7 +709,22 @@ section{ scroll-margin-top:96px; }
   /* 레일이 덱의 점 내비 — 좁은 폭에서는 번호를 접고 점만 */
   .js-deck .rail{ display:block; }
 }
-@media (min-width:992px) and (max-width:1279px) and (min-height:700px){
+/* 낮은 노트북 화면(뷰포트 600~719px) — 한 장에 담기도록 Works 를 한 단계 더 조인다.
+   제일 긴 장이 Works 라, 여기서 넘치면 is-tall 안전장치가 덱 전체 스냅을 느슨하게 만든다. */
+@media (min-width:992px) and (min-height:600px) and (max-height:719px){
+  .js-deck .sec-desc{ margin-top:6px; }
+  .js-deck .tabs{ margin-top:12px; }
+  .js-deck .works{ margin-top:12px; gap:16px; }
+  .js-deck .card-media{ height:clamp(64px,11vh,96px); }
+  /* 썸네일이 낮아지면 왼쪽 위 번호와 왼쪽 아래 배지가 겹친다 — 번호를 오른쪽 위로 비켜 둔다 */
+  .js-deck .card-num{ left:auto; right:20px; top:14px; }
+  .js-deck .card-badge{ left:20px; bottom:14px; }
+  .js-deck .card-text{ padding:12px 18px 16px; }
+  .js-deck .card-desc{ margin-top:6px; }
+  .js-deck .card-meta{ padding-top:8px; }
+  .js-deck .chips{ margin-top:8px; }
+}
+@media (min-width:992px) and (max-width:1279px) and (min-height:600px){
   .js-deck .rail{ right:6px; width:44px; }
   .js-deck .rail-mark{ justify-content:flex-end; }
   .js-deck .rail-mark span{ display:none; }

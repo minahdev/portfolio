@@ -8,10 +8,10 @@
  */
 
 /**
- * 덱(한 화면씩 스냅)이 켜지는 조건. globals.css 의 `@media (min-width:992px) and (min-height:700px)` 와 같은 값이어야 한다.
+ * 덱(한 화면씩 스냅)이 켜지는 조건. globals.css 의 `@media (min-width:992px) and (min-height:600px)` 와 같은 값이어야 한다.
  * 값이 어긋나도 갈라지지 않도록, 실제 판정은 CSS 가 .deck 에 심는 --deck-ready 를 읽어서 한다 (deckApplies).
  */
-export const DECK_QUERY = "(min-width: 992px) and (min-height: 700px)";
+export const DECK_QUERY = "(min-width: 992px) and (min-height: 600px)";
 
 type Cleanup = () => void;
 
